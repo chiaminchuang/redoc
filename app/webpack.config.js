@@ -5,7 +5,8 @@ module.exports = {
   entry: "./src/index.tsx",
   output: {
     filename: "bundle.js",
-    path: __dirname + "/build"
+    path: __dirname + "/build",
+    publicPath: "/"
   },
 
   // 幫助 webpack 輸出檔案 debug
@@ -38,13 +39,10 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "build")
     },
-    client: {
-      progress: true
-    },
+    historyApiFallback: true,
     watchFiles: ["src/**/*.tsx", "src/**/*.css"],
     hot: true,
     liveReload: true,
-
     port: 8081
   }
 }
